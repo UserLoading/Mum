@@ -24,21 +24,6 @@ public static Scanner input = new Scanner(System.in);
     public static void main(String[] args)  {
         // TODO code application logic here
         System.out.println("---===Start===---");
-        //Place the programm you want it to go to here 
-        //BlackJack.Game();
-        //List.List1();
-        //ListSortGUI.main(args);#
-        //MainMenu.main(args);
-        //GameMenu.main(args);
-        //new LibaryGUI().MainCode();
-        //LibaryGUI.main(args);        
-        //ColourClockV2.main(args);
-        //Starter.Starter();
-        //new MainMenu().setVisible(true);
-        //ListSortGUI.main(args);
-
-        //SendToFile.Test();
-        //Cards.Game();
         System.out.println("---===End===---");
     }
     

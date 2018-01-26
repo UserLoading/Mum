@@ -6,6 +6,10 @@
 package Useful;
 
 //import Game.Game;
+
+import java.util.ArrayList;
+import java.util.Random;
+
 //import java.util.Random;
 //import Game.Game.RandomLoops;
 
@@ -15,17 +19,23 @@ package Useful;
  */
 public class RandomNumber   {
     public static int Pos=0;
-
-    public static void NumberGen(int RandLoops){
-        int Loop = 0;
-        while (Loop<RandLoops){
-            Loop++;
-            Pos=(Pos+50);
+    
+    public static ArrayList <Integer> NumberGen(int Loops,int Max,int Min){
+        ArrayList <Integer> List = new ArrayList<>();
+        for (int i=0;i<Loops;i++){
+            Random rand = new Random();
+            int Result = rand.nextInt(Max-Min) + Min;
+            List.add(Result);
         }
+        return List;
     }
+    
+        
+    
+        
+    
 }
 /**Use this code when you want a random number in the other code and call upon it with RandomNumber.NumberGen 
- *  public static int min = 1;
-    public static int max = 11;
-    public static int RandLoops = 4;
+ * ArrayList List = NumberGen(Loops ->6, Max->99, Min->1);
+ *  
  */

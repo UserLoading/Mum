@@ -86,21 +86,6 @@ public class FileStuff {
         } catch (IOException e) {
             System.out.println("Error:"+e);
         }
-            //BufferedWriter writer = new BufferedWriter(new FileWriter(FileName+".txt"));
-            //int x =0;
-            //while (x<Lines){
-            //    x++;
-            //    writer.newLine();
-            //    writer.write(str.get(x-1).toString());
-            //    writer.newLine();
-            //}
-            //writer.close();
+           
     }
 }
-
-
-/*
-public static String str = "I did it max!";
-public static String FileName = "Error";
-public static int Lines = 100;
-*/
