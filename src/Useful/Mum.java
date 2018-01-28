@@ -24,6 +24,7 @@ public static Scanner input = new Scanner(System.in);
     public static void main(String[] args)  {
         // TODO code application logic here
         System.out.println("---===Start===---");
+        Login.main(args);
         System.out.println("---===End===---");
     }
     
