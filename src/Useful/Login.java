@@ -5,6 +5,9 @@
  */
 package Useful;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author LG171811
@@ -22,6 +25,10 @@ public class Login extends javax.swing.JFrame {
      */
     public Login() {
         initComponents();
+    }
+    public void run(){
+        
+
     }
 
     /**
@@ -133,7 +140,7 @@ public class Login extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(275, 275, 275)
+                .addGap(278, 278, 278)
                 .addComponent(jButton1)
                 .addGap(58, 58, 58))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -173,12 +180,30 @@ public class Login extends javax.swing.JFrame {
         }
         if (Attempts==AttemptsAllowed){
             int Minus =1;
-            jLabel5.setText("Locked out");
+            //jLabel5.setText("Locked out");
             jTextField1.setEditable(false);
             jPasswordField1.setEditable(false);
             jButton1.setEnabled(false);
-            while (Delay*60<Locked*5*60 ){
-                //jLabel5.setText();
+            int Mins = Delay;
+            int Seconds =0;
+            int x=0;
+            while (x==0){
+                try {
+                    //jLabel5.setText(Mins+"m"+Seconds+"s");
+                    jPanel1.repaint();
+                    Thread.sleep(1000);
+                    jLabel5.setText(Mins+"m"+Seconds+"s");
+                    System.out.println(Mins+"m"+Seconds+"s");
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                if (Seconds ==0){
+                    Seconds=59;
+                    Mins--;
+                }
+                else{
+                    Seconds--;
+                }
             }
         }
         else {
