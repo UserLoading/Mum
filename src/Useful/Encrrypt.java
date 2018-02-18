@@ -14,7 +14,9 @@ import java.util.Scanner;
  * @author LG171811
  */
 public class Encrrypt { // 8 bit 
+    public static int Found =0;
     public static void main(String[] args)  {
+       
        Scanner input = new Scanner(System.in);
        ArrayList Alpha = new ArrayList();
        ArrayList Encrypt = new ArrayList();
@@ -24,9 +26,11 @@ public class Encrrypt { // 8 bit
        for (char c = 'A'; c <= 'Z'; c++) {
         Alpha.add(c);
         }
-       System.out.println(Alpha);
+       for (char c = 'a'; c <= 'z'; c++) {
+        Alpha.add(c);
+        }
        double K1=0;
-       double K2=0;
+       int K2=0;
        double K3=0;
        int Rand = 0;
        int Char =0;
@@ -34,6 +38,7 @@ public class Encrrypt { // 8 bit
        System.out.println("Enter the key size you want to use mininum 256");
        int UserKey = input.nextInt();
        K1 = rand.nextInt(UserKey);
+       K2 = rand.nextInt(24);
        while (K1<100){
             K1 = rand.nextInt(UserKey);
         }
@@ -42,7 +47,11 @@ public class Encrrypt { // 8 bit
        for (int i=0;i<Pass.length();i++){
            for (int x=0;x<(new Float( Math.round(K1/24)));x++){
                if (x==1){
-                   Encrypt.add(Pass.charAt(Char));
+                   char d = Pass.charAt(Char);
+                   for (int a=0; Alpha.get(a).equals(d)==false;a++){
+                       Found =a;
+                   }
+                   Encrypt.add(Alpha.get(Found+K2));
                    Char++;
                }
                else{
