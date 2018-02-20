@@ -5,6 +5,7 @@
  */
 package Useful;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
@@ -15,7 +16,7 @@ import java.util.Scanner;
  */
 public class Encrrypt { // 8 bit 
     public static int Found =0;
-    public static void main(String[] args)  {
+    public static void main(String[] args) throws IOException  {
        
        Scanner input = new Scanner(System.in);
        ArrayList Alpha = new ArrayList();
@@ -31,22 +32,24 @@ public class Encrrypt { // 8 bit
         }
        double K1=0;
        int K2=0;
-       double K3=0;
+       int K3=0;
        int Rand = 0;
        int Char =0;
        Random rand = new Random();
-       System.out.println("Enter the key size you want to use mininum 256");
+       System.out.println("Enter the key size you want to use mininum 1000");
        int UserKey = input.nextInt();
        K1 = rand.nextInt(UserKey);
        K2 = rand.nextInt(24);
-       while (K1<100){
+       K3 = rand.nextInt(10);
+        System.out.println(K3);
+       while (K1<1000){
             K1 = rand.nextInt(UserKey);
         }
        System.out.println("Enter the password:");
        String Pass = input.next();
        for (int i=0;i<Pass.length();i++){
            for (int x=0;x<(new Float( Math.round(K1/24)));x++){
-               if (x==1){
+               if (x==K3){
                    char d = Pass.charAt(Char);
                    for (int a=0; Alpha.get(a).equals(d)==false;a++){
                        Found =a;
