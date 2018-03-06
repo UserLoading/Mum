@@ -41,7 +41,6 @@ public class Encrrypt { // 8 bit
        K1 = rand.nextInt(UserKey);
        K2 = rand.nextInt(24);
        K3 = rand.nextInt(10);
-        System.out.println(K3);
        while (K1<1000){
             K1 = rand.nextInt(UserKey);
         }
