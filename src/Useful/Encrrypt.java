@@ -15,11 +15,17 @@ import java.util.Scanner;
  * @author LG171811
  */
 public class Encrrypt { // 8 bit 
+    public static ArrayList <Integer> Add = new ArrayList();
     public static int Found =0;
+    public static String text = "";
+    public static double K1=0;
+    public static int K2=0;
+    public static int K3=0;
+    public static int len =0;
+    public static ArrayList Alpha = new ArrayList();
     public static void main(String[] args) throws IOException  {
        
        Scanner input = new Scanner(System.in);
-       ArrayList Alpha = new ArrayList();
        ArrayList Encrypt = new ArrayList();
        for (char c = 'a'; c <= 'z'; c++) {
         Alpha.add(c);
@@ -30,9 +36,6 @@ public class Encrrypt { // 8 bit
        for (char c = 'a'; c <= 'z'; c++) {
         Alpha.add(c);
         }
-       double K1=0;
-       int K2=0;
-       int K3=0;
        int Rand = 0;
        int Char =0;
        Random rand = new Random();
@@ -41,11 +44,12 @@ public class Encrrypt { // 8 bit
        K1 = rand.nextInt(UserKey);
        K2 = rand.nextInt(24);
        K3 = rand.nextInt(10);
-       while (K1<1000){
-            K1 = rand.nextInt(UserKey);
-        }
+       //while (K1<=1000){
+       //     K1 = rand.nextInt(UserKey);
+       // }
        System.out.println("Enter the password:");
        String Pass = input.next();
+       len = Pass.length();
        for (int i=0;i<Pass.length();i++){
            for (int x=0;x<(new Float( Math.round(K1/24)));x++){
                if (x==K3){
@@ -53,6 +57,7 @@ public class Encrrypt { // 8 bit
                    for (int a=0; Alpha.get(a).equals(d)==false;a++){
                        Found =a;
                    }
+                   Add.add(Found+K2);
                    Encrypt.add(Alpha.get(Found+K2));
                    Char++;
                }
@@ -64,11 +69,17 @@ public class Encrrypt { // 8 bit
            }
            
        }
-       String text = Encrypt.toString().replace("[", "").replace("]", "").replace(",", "");
+       text = Encrypt.toString().replace("[", "").replace("]", "").replace(",", "");
        System.out.println(text);
-       
+       Decrypt();
    }
     public static void Decrypt (){
+        ArrayList Letters = new ArrayList ();
+        int Char =0;
+        for (int i = 0;i<len;i++){
+            System.out.println(Alpha.get(Add.get(i)-K2+1));
+        }
         
+        System.out.println(Letters);   
     }
 }
